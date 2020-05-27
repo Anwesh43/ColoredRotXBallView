@@ -191,4 +191,27 @@ class ColoredRotXBallView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : ColoredRotXBallView) {
+
+        private val animator : Animator = Animator(view)
+        private val crxb : ColoredRotXBall = ColoredRotXBall(0)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            crxb.draw(canvas, paint)
+            animator.animate {
+                crxb.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            crxb.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
