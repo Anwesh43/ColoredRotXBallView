@@ -64,3 +64,19 @@ fun Canvas.drawCRXBNode(i : Int, scale : Float, paint : Paint) {
     drawColoredRotXBalls(scale, w, h, paint)
     restore()
 }
+
+class ColoredRotXBallView(ctx : Context) : View(ctx) {
+
+    override fun onDraw(canvas : Canvas) {
+
+    }
+
+    override fun onTouchEvent(event : MotionEvent) : Boolean {
+        when (event.action) {
+            MotionEvent.ACTION_DOWN -> {
+
+            }
+        }
+        return true
+    }
+}
