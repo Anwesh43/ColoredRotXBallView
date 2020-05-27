@@ -216,4 +216,13 @@ class ColoredRotXBallView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity : Activity) : ColoredRotXBallView {
+            val view : ColoredRotXBallView = ColoredRotXBallView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
