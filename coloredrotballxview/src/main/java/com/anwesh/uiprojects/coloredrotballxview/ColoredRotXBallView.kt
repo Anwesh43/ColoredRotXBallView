@@ -45,9 +45,9 @@ fun Canvas.drawColoredRotXBalls(scale : Float, w : Float, h : Float, paint : Pai
     val sf : Float = scale.sinify()
     for (i in 0..(lines - 1)) {
         save()
-        rotate(rot * sf * (1f - 2 * i))
+        rotate(rot * sf.divideScale(2, 3) * (1f - 2 * i))
         for (j in 0..(lines - 1)) {
-            drawColoredRotXBall(i, sf, w, h, paint)
+            drawColoredRotXBall(j, sf, w, h, paint)
         }
         restore()
     }
